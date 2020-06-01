@@ -1,1 +1,13 @@
-<h1>Welcome to Chatter!</h1>
+<div class="bg-light">
+  <main role="main" class="container">
+    <div class="my-3 p-3 bg-white rounded shadow-sm text-center">
+      <h1 class="text-info font-weight-bold ">Welcome to Chatter</h1>
+      <h2 class="text-secondary">Share your thoughts and opinions with the world!</h2>
+    </div>
+    <%= render 'logged_out_home' %>
+
+    <%= render 'logged_in_home' %>
+
+    <%= render 'shared/recent_posts' %>
+  </main>
+</div>
