@@ -12,7 +12,7 @@ class ActiveSupport::TestCase
 
   # Format test results nicely
   Minitest::Reporters.use!
-  
-  # Add more helper methods to be used by all tests here...
 
+  # Add more helper methods to be used by all tests here...
+  include ApplicationHelper
 end
