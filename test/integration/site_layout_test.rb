@@ -19,7 +19,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', new_user_registration_path, count: 0
     assert_select 'a[href=?]', new_user_session_path, count: 0
     assert_select 'a[href=?]', destroy_user_session_path
-    assert_match @bob.email, response.body
+    assert_match @bob.name, response.body
     get contact_path
     assert_template 'static_pages/contact'
     assert_select 'title', full_title("Contact")
