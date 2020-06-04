@@ -4,11 +4,12 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("packs/custom")
 require("jquery")
+require ("jquery.turbolinks")
+require("turbolinks").start()
 import "bootstrap"
 
 

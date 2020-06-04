@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
