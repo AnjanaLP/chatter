@@ -13,6 +13,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'will_paginate', '~> 3.3'
+gem 'bootstrap-will_paginate', '~> 1.0'
+gem 'faker', '~> 2.12'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
