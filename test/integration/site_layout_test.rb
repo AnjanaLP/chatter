@@ -18,6 +18,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
     assert_select 'a[href=?]', new_user_registration_path, count: 0
     assert_select 'a[href=?]', new_user_session_path, count: 0
+    assert_select 'a[href=?]', user_path(@bob)
     assert_select 'a[href=?]', edit_user_registration_path
     assert_select 'a[href=?]', destroy_user_session_path
     assert_match @bob.name, response.body
