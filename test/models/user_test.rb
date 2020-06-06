@@ -14,11 +14,11 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "name should be present" do
-    @user.name = ""
+    @user.name = "   "
     assert_not @user.valid?
   end
 
-  test "name should not be too long" do
+  test "name should not exceed 50 characters" do
     @user.name = "a" * 51
     assert_not @user.valid?
   end
