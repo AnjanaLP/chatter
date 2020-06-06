@@ -22,4 +22,12 @@ class UserTest < ActiveSupport::TestCase
     @user.name = "a" * 51
     assert_not @user.valid?
   end
+
+  test "deleting a user should delete that user's posts" do
+    @user.save
+    @user.posts.create!(content: "Test post")
+    assert_difference 'Post.count', -1 do
+      @user.destroy
+    end
+  end
 end
