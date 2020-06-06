@@ -1,9 +1,24 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
+  content: MyText 1
+  created_at: <%= 10.days.ago %>
   user: bob
 
+
 two:
-  content: MyText
+  content: MyText 2
+  created_at: <%= 5.days.ago %>
+  user: bob
+
+
+bob_latest_post:
+  content: MyText 3
+  created_at: <%= 5.minutes.ago %>
+  user: bob
+
+
+four:
+  content: MyText 4
+  created_at: <%= 20.minutes.ago %>
   user: bob

@@ -22,8 +22,12 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "deleting a user should delete that user's posts" do
-    assert_difference 'Post.count', -2 do
+    assert_difference 'Post.count', -4 do
       @bob.destroy
     end
+  end
+
+  test "posts should be retrieved in reverse chronological order" do
+    assert_equal posts(:bob_latest_post), @bob.posts.first
   end
 end
