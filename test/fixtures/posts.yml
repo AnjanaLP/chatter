@@ -22,3 +22,9 @@ four:
   content: MyText 4
   created_at: <%= 20.minutes.ago %>
   user: bob
+
+<% 35.times do |n| %>
+post_<%= n %>:
+  content: Post <%= n %>
+  user: alice
+<% end %>

@@ -1,0 +1,9 @@
+<div class="media text-muted pt-3">
+  <div class="media-body pb-3 mb-0 medium lh-225 border-bottom border-gray">
+    <strong class="d-block text-info">
+      <%= fa_icon "user", class: "user-icons" %><%= link_to post.user.name, post.user, class: "text-info" %>
+    </strong>
+    <%= post.content %>
+    <div class="text-info small"><em>Posted <%= time_ago_in_words(post.created_at) %> ago</em></div>
+  </div>
+</div>

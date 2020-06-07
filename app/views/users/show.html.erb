@@ -1,5 +1,16 @@
 <% provide :title, "#{@user.name}"  %>
 
-<div class="container">
-  <h2 class="text-center text-secondary"><%= @user.name %></h2>
-</div>
+<div class="bg-light">
+  <main role="main" class="container">
+    <div class="my-3 p-3 bg-white rounded shadow-sm text-center">
+      <h1 class="text-left text-info"><%= @user.name %></h1>
+    </div>
+    <% if @user.posts.any? %>
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h5 class="border-bottom border-gray pb-2 mb-0 text-secondary"><em><%= @user.posts.count %> Posts</em></h5>
+          <%= render @posts %>
+      </div>
+      <%= paginate @posts %>
+    <% end %>
+  </main>
+</div
