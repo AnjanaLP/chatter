@@ -18,5 +18,11 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_select 'a[href=?]', user_path(post.user), text: post.user.name
       assert_match post.content, response.body
     end
+    assert_select 'form', count: 0
+    sign_in @alice
+    get user_path(@alice)
+    assert_select 'form'
+    get user_path(users(:bob))
+    assert_select 'form', count: 0
   end
 end

@@ -5,9 +5,9 @@
       <h2 class="text-secondary">Share your thoughts and opinions with the world!</h2>
     </div>
     <% if user_signed_in? %>
-      <%= render 'logged_in_home' %>
+      <%= render 'static_pages/logged_in_home' %>
     <% else %>
-      <%= render 'logged_out_home' %>
+      <%= render 'static_pages/logged_out_home' %>
     <% end %>
 
     <%= render 'shared/recent_posts' %>

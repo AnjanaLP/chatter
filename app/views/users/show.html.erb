@@ -2,15 +2,19 @@
 
 <div class="bg-light">
   <main role="main" class="container">
-    <div class="my-3 p-3 bg-white rounded shadow-sm text-center">
-      <h1 class="text-left text-info"><%= @user.name %></h1>
+    <div class="my-3 p-3 bg-info rounded shadow-sm text-center">
+      <h1 class="text-left text-white"><%= @user.name %></h1>
     </div>
+    <% if current_user && current_user == @user %>
+      <%= render 'shared/post_form' %>
+    <% end %>
+
     <% if @user.posts.any? %>
       <div class="my-3 p-3 bg-white rounded shadow-sm">
-        <h5 class="border-bottom border-gray pb-2 mb-0 text-secondary"><em><%= @user.posts.count %> Posts</em></h5>
+        <h5 class="border-bottom border-gray pb-2 mb-0 text-secondary"><em><%= pluralize(@user.posts.count, "post") %></em></h5>
           <%= render @posts %>
+          <%= paginate @posts %>
       </div>
-      <%= paginate @posts %>
     <% end %>
   </main>
 </div

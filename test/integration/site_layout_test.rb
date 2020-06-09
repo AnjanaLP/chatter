@@ -14,6 +14,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', contact_path
     assert_select 'a[href=?]', new_user_registration_path, count: 2
     assert_select 'a[href=?]', new_user_session_path, count: 2
+    assert_select 'form', count: 0
     sign_in @bob
     get root_path
     assert_select 'a[href=?]', new_user_registration_path, count: 0
@@ -23,6 +24,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', edit_user_registration_path
     assert_select 'a[href=?]', destroy_user_session_path
     assert_match @bob.name, response.body
+    assert_select 'form', count: 1
     get contact_path
     assert_template 'static_pages/contact'
     assert_select 'title', full_title("Contact")
