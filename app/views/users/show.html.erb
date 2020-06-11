@@ -5,7 +5,7 @@
     <div class="my-3 p-3 bg-info rounded shadow-sm text-center">
       <h1 class="text-left text-white"><%= @user.name %></h1>
     </div>
-    <% if current_user && current_user == @user %>
+    <% if current_user?(@user) %>
       <%= render 'shared/post_form' %>
     <% end %>
 

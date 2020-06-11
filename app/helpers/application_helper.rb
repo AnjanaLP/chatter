@@ -8,4 +8,8 @@ module ApplicationHelper
   def paginate(collection)
     will_paginate collection, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer
   end
+
+  def current_user?(user)
+    current_user && current_user == user
+  end
 end

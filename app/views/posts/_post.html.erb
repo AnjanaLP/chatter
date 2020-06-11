@@ -5,5 +5,8 @@
     </strong>
     <%= post.content %>
     <div class="text-info small"><em>Posted <%= time_ago_in_words(post.created_at) %> ago</em></div>
+    <div><%= link_to "delete", post, method: :delete,
+                                     data: { confirm: "Are you sure?" },
+                                     class: "text-danger" if current_user?(post.user) %></div>
   </div>
 </div>

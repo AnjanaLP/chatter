@@ -4,6 +4,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 
   def setup
     @alice = users(:alice)
+    @bob = users(:bob)
   end
 
   test "profile page including paginated posts" do
@@ -17,12 +18,17 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_select 'i.fa-user'
       assert_select 'a[href=?]', user_path(post.user), text: post.user.name
       assert_match post.content, response.body
+      assert_select 'a[href=?]', post_path(post), text: "delete", count: 0
     end
     assert_select 'form', count: 0
     sign_in @alice
     get user_path(@alice)
     assert_select 'form'
-    get user_path(users(:bob))
+    @alice.posts.paginate(page: 1).each do |post|
+      assert_select 'a[href=?]', post_path(post), text: "delete"
+    end
+    get user_path @bob
     assert_select 'form', count: 0
+    assert_select 'a', text: 'delete', count: 0 
   end
 end
