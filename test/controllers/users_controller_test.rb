@@ -22,4 +22,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_redirected_to new_user_session_path
   end
+
+  test "should get followers" do
+    get followers_user_path @bob
+    assert_response :success
+  end
+
+  test "should get following" do
+    get following_user_path @bob
+    assert_response :success
+  end
 end

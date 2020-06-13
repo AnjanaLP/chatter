@@ -2,9 +2,18 @@
 
 <div class="bg-light">
   <main role="main" class="container">
-    <div class="my-3 p-3 bg-info rounded shadow-sm text-center">
-      <h1 class="text-left text-white"><%= @user.name %></h1>
+    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-info rounded shadow-sm">
+      <div class="lh-100">
+        <h1 class="mb-0 text-white lh-100 name"><%= @user.name %></h1>
+        <h5>
+          <%= link_to "#{@user.followers.count} Followers", followers_user_path(@user), class: "text-white-50"%> |
+          <%= link_to "#{@user.following.count} Following", following_user_path(@user), class: "text-white-50"%>
+        </h5>
+      </div>
     </div>
+
+    <%= link_to "Follow","#", class: "btn btn-info text-white btn-block font-weight-bold" %>
+
     <% if current_user?(@user) %>
       <%= render 'shared/post_form' %>
     <% end %>

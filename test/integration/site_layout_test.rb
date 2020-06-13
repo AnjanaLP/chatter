@@ -24,6 +24,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', edit_user_registration_path
     assert_select 'a[href=?]', destroy_user_session_path
     assert_match @bob.name, response.body
+    assert_select 'a[href=?]', followers_user_path(@bob), text: "#{@bob.followers.count} Followers"
+    assert_select 'a[href=?]', following_user_path(@bob), text: "#{@bob.following.count} Following"
     assert_select 'form', count: 1
     get contact_path
     assert_template 'static_pages/contact'

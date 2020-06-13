@@ -2,7 +2,10 @@
   <%= fa_icon "user", class: "icons" %>
   <div class="lh-100">
     <h6 class="mb-0 text-white lh-100 name"><%= current_user.name %></h6>
-    <small>12 Followers | 14 Following</small>
+    <small>
+      <%= link_to "#{current_user.followers.count} Followers", followers_user_path(current_user), class: "text-white-50"%> |
+      <%= link_to "#{current_user.following.count} Following", following_user_path(current_user), class: "text-white-50" %>
+    </small>
   </div>
 </div>
 

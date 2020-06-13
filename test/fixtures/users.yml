@@ -6,7 +6,7 @@ alice:
   name: Alice Example
   email: alice@example.com
 
-<% 30.times do |n| %>
+<% 31.times do |n| %>
 user_<%= n %>:
   name: User <%= n %>
   email: user<%= n %>@example.com

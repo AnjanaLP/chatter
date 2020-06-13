@@ -1,5 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+<% 31.times do |n| %>
+bob_followers_<%= n %>:
+  follower: user_<%= n %>
+  followed: bob
+<% end %>
 
-one:
-  follower_id: 1
-  followed_id: 1
+<% 31.times do |n| %>
+bob_following_<%= n %>:
+  follower: bob
+  followed: user_<%= n %>
+<% end %>

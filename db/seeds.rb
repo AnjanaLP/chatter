@@ -15,3 +15,10 @@ users_with_posts = User.order(:created_at).take(5)
   content = Faker::Lorem.paragraph(sentence_count: 7)
   users_with_posts.each { |user| user.posts.create!(content: content) }
 end
+
+users = User.all
+user  = users.first
+following = users[2..35]
+followers = users[3..20]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

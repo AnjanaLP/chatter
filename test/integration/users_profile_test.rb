@@ -12,6 +12,8 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_template 'users/show'
     assert_select "title", full_title(@alice.name)
     assert_select "h1", text: @alice.name
+    assert_select 'a[href=?]', followers_user_path(@alice), text: "#{@alice.followers.count} Followers"
+    assert_select 'a[href=?]', following_user_path(@alice), text: "#{@alice.following.count} Following"
     assert_match @alice.posts.count.to_s, response.body
     assert_select 'ul.pagination'
     @alice.posts.paginate(page: 1).each do |post|
@@ -29,6 +31,6 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     end
     get user_path @bob
     assert_select 'form', count: 0
-    assert_select 'a', text: 'delete', count: 0 
+    assert_select 'a', text: 'delete', count: 0
   end
 end

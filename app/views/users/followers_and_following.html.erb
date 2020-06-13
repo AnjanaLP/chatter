@@ -1,0 +1,14 @@
+<% provide :title, "#{@user.name} | #{@title}" %>
+
+<div class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-info rounded shadow-sm">
+    <h1 class="mb-0 text-white lh-100 name"><%= link_to "#{@user.name}", @user, class: "text-white"%> |
+      <%= "#{@users.count} #{@title}" %>
+    </h1>
+  </div>
+  <% if @users.any? %>
+    <%= paginate @users %>
+    <%= render @users %>
+    <%= paginate @users %>
+  <% end %>
+</div>

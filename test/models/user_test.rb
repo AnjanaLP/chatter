@@ -34,16 +34,16 @@ class UserTest < ActiveSupport::TestCase
   test "a user can follow and unfollow another user" do
     bob = users(:bob)
     alice = users(:alice)
-    assert bob.followers.empty?
-    assert alice.following.empty?
+    assert_not bob.followers.include?(alice)
+    assert_not alice.following.include?(bob)
     assert_not alice.following?(bob)
     alice.follow(bob)
     assert bob.followers.include?(alice)
     assert alice.following.include?(bob)
     assert alice.following?(bob)
     alice.unfollow(bob)
-    assert bob.followers.empty?
-    assert alice.following.empty?
+    assert_not bob.followers.include?(alice)
+    assert_not alice.following.include?(bob)
     assert_not alice.following?(bob)
   end
 end
