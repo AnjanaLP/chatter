@@ -4,6 +4,7 @@ class FriendshipsInterfaceTest < ActionDispatch::IntegrationTest
 
   def setup
     @bob = users(:bob)
+    @alice = users(:alice)
   end
 
   test "a user's followers page including pagination" do
@@ -28,5 +29,25 @@ class FriendshipsInterfaceTest < ActionDispatch::IntegrationTest
     @bob.following.paginate(page: 1).each do |following|
       assert_select 'a[href=?]', user_path(following), text: following.name
     end
+  end
+
+  test 'succesfully follow and unfollow a user' do
+    get user_path @bob
+    assert_select 'a', text: "Follow"
+    sign_in @bob
+    get user_path @bob
+    assert_select 'a', text: "Follow", count: 0
+    get user_path @alice
+    assert_match "Follow", response.body
+    assert_difference '@bob.following.count', 1 do
+      post friendships_path, params: { followed_id: @alice.id }
+    end
+    get user_path @alice
+    assert_match "Unfollow", response.body
+    assert_difference '@bob.following.count', -1 do
+      delete friendship_path(@alice.passive_friendships.last)
+    end
+    get user_path @alice
+    assert_match "Follow", response.body
   end
 end

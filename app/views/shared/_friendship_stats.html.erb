@@ -1,0 +1,3 @@
+<% @user ||= current_user %>
+<%= link_to "#{@user.followers.count} Followers", followers_user_path(@user), class: "text-white-50"%> |
+<%= link_to "#{@user.following.count} Following", following_user_path(@user), class: "text-white-50"%>

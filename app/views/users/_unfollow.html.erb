@@ -1,0 +1,4 @@
+<%= form_with(model: current_user.active_friendships.find_by(followed_id: @user.id),
+             html: { method: :delete }, local: true) do |f| %>
+  <%= f.submit "Unfollow", class: "btn btn-secondary text-white btn-block font-weight-bold" %>
+<% end %>
