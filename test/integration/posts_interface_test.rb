@@ -30,7 +30,6 @@ class PostsCreateTest < ActionDispatch::IntegrationTest
       delete post_path(@alice.posts.first)
     end
     assert_not flash.empty?
-    assert_redirected_to user_url(@alice)
     follow_redirect!
     assert_select 'div.notice'
     assert_no_match content, response.body
