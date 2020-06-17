@@ -50,4 +50,12 @@ class FriendshipsInterfaceTest < ActionDispatch::IntegrationTest
     get user_path @alice
     assert_match "Follow", response.body
   end
+
+  test "feed should be displayed on homepage" do
+    sign_in @bob
+    get root_path
+    @bob.feed.paginate(page: 1).each do |post|
+      assert_match post.content, response.body
+    end
+  end
 end

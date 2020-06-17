@@ -1,0 +1,9 @@
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+  <h5 class="text-secondary border-bottom border-gray pb-2 mb-0"><em>What others are saying!</em></h5>
+  <% if @sample_posts.any? %>
+    <%= render @sample_posts %>
+    <%= link_to "More posts",
+                new_user_session_path(flash_alert: "You need to sign in or sign up before continuing."),
+                class: "d-block text-right mt-3" %>
+  <% end %>
+</div>

@@ -23,6 +23,16 @@ four:
   created_at: <%= 20.minutes.ago %>
   user: bob
 
+five:
+  content: MyText 5
+  created_at: <%= 2.minutes.ago %>
+  user: john
+
+six:
+  content: MyText 6
+  created_at: <%= 20.minutes.ago %>
+  user: john
+
 <% 35.times do |n| %>
 post_<%= n %>:
   content: Post <%= n %>

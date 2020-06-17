@@ -6,10 +6,10 @@
     </div>
     <% if user_signed_in? %>
       <%= render 'static_pages/logged_in_home' %>
+      <%= render 'shared/feed_posts' %>
     <% else %>
       <%= render 'static_pages/logged_out_home' %>
+      <%= render 'static_pages/sample_posts' %>
     <% end %>
-
-    <%= render 'shared/recent_posts' %>
   </main>
 </div>

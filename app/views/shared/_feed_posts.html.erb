@@ -1,0 +1,7 @@
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+  <h5 class="text-secondary border-bottom border-gray pb-2 mb-0"><em>Your feed</em></h5>
+  <% if @feed_posts.any? %>
+    <%= render @feed_posts %>
+    <%= paginate @feed_posts %>
+  <% end %>
+</div>

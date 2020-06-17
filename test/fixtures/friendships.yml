@@ -9,3 +9,7 @@ bob_following_<%= n %>:
   follower: bob
   followed: user_<%= n %>
 <% end %>
+
+one:
+  follower: bob
+  followed: john
