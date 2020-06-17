@@ -4,7 +4,7 @@ https://chatter-ap.herokuapp.com
 
 An application to duplicate the core functionality of Twitter, using Rails 6 and Ruby 2.6.3 with a PostgreSQL database, achieved using TDD.
 
-### Key Features
+## Key Features
 - Any user can view a user's profile page which displays the user's followers/following statistics and the user's paginated posts in reverse chronological order.
 - Logged-in users can see a paginated list of all users (which link to the associated user profile page), edit
 their account settings, post and delete their own messages via the homepage or their profile page.
