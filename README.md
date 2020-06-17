@@ -1,4 +1,4 @@
-# Restaurant-Rater
+# Chatter
 
 https://chatter-ap.herokuapp.com
 
